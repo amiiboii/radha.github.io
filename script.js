@@ -437,25 +437,33 @@ document.addEventListener('keydown', function (event) {
         nextLine();
     }
 });
+const audioPlayer = document.getElementById('audio-player');
+const currentTrackElement = document.getElementById('current-track');
+const audioSource = document.getElementById('audio-source');
 
-document.addEventListener('DOMContentLoaded', function () {
-    const audioPlayer = document.getElementById('audio-player');
+// List of tracks with their names and URLs
+const tracks = [
+    { name: "Better Off (Live from the Internet)", url: "https://radha.github.io/Music/better%20off%20(live%20from%20the%20internet).mp3" },
+    // Add more tracks as needed
+];
 
-    // Function to play the next track
-    function playNextTrack() {
-        if (audioPlayer.src !== '') {
-            const currentTrackNumber = parseInt(audioPlayer.src.split('/').pop().split('.')[0]);
-            const nextTrackNumber = (currentTrackNumber % 10) + 1; // Loop from 1 to 10
-            audioPlayer.src = `${nextTrackNumber}.mp3`;
-            audioPlayer.play();
-        }
-    }
+let currentTrackIndex = 0;
 
-    // Event listener to trigger the next track when the current one ends
-    audioPlayer.addEventListener('ended', playNextTrack);
+function playTrack() {
+    audioSource.src = tracks[currentTrackIndex].url;
+    audioPlayer.load();
+    audioPlayer.play();
+    currentTrackElement.textContent = tracks[currentTrackIndex].name;
+}
 
-    // Start playing the first track
-    playNextTrack();
-});
+function skipTrack() {
+    currentTrackIndex = (currentTrackIndex + 1) % tracks.length;
+    playTrack();
+}
+
+// Initial setup
+playTrack();
+
+
 // Start the story
 displayStorySection();

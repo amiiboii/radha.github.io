@@ -10,7 +10,7 @@
 
     <div id="container">
         <div id="story-section">
-            <div id="buttons">
+            <div class="section-buttons">
                 <button onclick="displayStorySection()">OUR STORY</button>
                 <button onclick="askQuestion()">MCQ</button>
             </div>
@@ -22,7 +22,7 @@
             </div>
         </div>
         <div id="question-section">
-            <div id="buttons">
+            <div class="section-buttons">
                 <button onclick="displayStorySection()">OUR STORY</button>
                 <button onclick="askQuestion()">MCQ</button>
             </div>
@@ -35,23 +35,18 @@
                 <button onclick="skipQuestion()">Skip</button> <!-- Add the skip button -->
             </div>
         </div>
+        <div id="audio-section">
+            <h2 id="audio-heading">Now Playing: <span id="current-track"></span></h2>
+            <audio id="audio-player" controls>
+                <source src="" type="audio/mpeg" id="audio-source">
+                Your browser does not support the audio element.
+            </audio>
+            <div id="audio-buttons">
+                <button onclick="skipTrack()">Skip Track</button>
+            </div>
+        </div>
     </div>
-
-    <!-- Audio elements for playing tracks -->
-    <audio id="audio-player" controls autoplay loop>
-        <source src="1.mp3" type="audio/mp3">
-        <source src="2.mp3" type="audio/mp3">
-        <source src="3.mp3" type="audio/mp3">
-        <source src="4.mp3" type="audio/mp3">
-        <source src="5.mp3" type="audio/mp3">
-        <source src="6.mp3" type="audio/mp3">
-        <source src="7.mp3" type="audio/mp3">
-        <source src="8.mp3" type="audio/mp3">
-        <source src="9.mp3" type="audio/mp3">
-        <source src="10.mp3" type="audio/mp3">
-    </audio>
 
     <script src="script.js"></script>
 </body>
 </html>
-
