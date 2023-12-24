@@ -461,7 +461,7 @@ function playShuffledMusic() {
             console.log(`Now playing: ${currentTrack}`);
 
             // Play the current track using the HTML5 Audio element
-            const audio = new Audio(`radha.github.io/Music/${currentTrack}`);
+            const audio = new Audio(`radha.github.io/Music/trackNames}`);
             audio.play();
 
             // Listen for the 'ended' event to play the next track
