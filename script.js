@@ -468,11 +468,17 @@ class musicPlayer {
     // Toggle play/pause for the audio element
     if (this.audio.paused) {
       this.audio.play();
+      console.log('Play button pressed. Audio is now playing.');
     } else {
       this.audio.pause();
+      console.log('Pause button pressed. Audio is now paused.');
     }
   }
 }
+
+// Create an instance of the musicPlayer class
+const player = new musicPlayer();
+
 
 // Create an instance of the musicPlayer class
 const newMusicplayer = new musicPlayer();
