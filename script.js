@@ -438,49 +438,24 @@ document.addEventListener('keydown', function (event) {
     }
 });
 
-// Create an array of track names
-const trackNames = Array.from({ length: 10 }, (_, index) => `${index + 1}.mp3`);
+document.addEventListener('DOMContentLoaded', function () {
+    const audioPlayer = document.getElementById('audio-player');
 
-// Function to shuffle an array using Fisher-Yates algorithm
-function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
-}
-
-// Function to play shuffled music
-function playShuffledMusic() {
-    const shuffledTracks = shuffleArray([...trackNames]);
-    let currentIndex = 0;
-
+    // Function to play the next track
     function playNextTrack() {
-        if (currentIndex < shuffledTracks.length) {
-            const currentTrack = shuffledTracks[currentIndex];
-            console.log(`Now playing: ${currentTrack}`);
-
-            // Play the current track using the HTML5 Audio element
-            const audio = new Audio(`radha.github.io/Music/trackNames}`);
-            audio.play();
-
-            // Listen for the 'ended' event to play the next track
-            audio.addEventListener('ended', () => {
-                currentIndex++;
-                playNextTrack();
-            });
-        } else {
-            console.log("All tracks played");
+        if (audioPlayer.src !== '') {
+            const currentTrackNumber = parseInt(audioPlayer.src.split('/').pop().split('.')[0]);
+            const nextTrackNumber = (currentTrackNumber % 10) + 1; // Loop from 1 to 10
+            audioPlayer.src = `${nextTrackNumber}.mp3`;
+            audioPlayer.play();
         }
     }
 
-    playNextTrack(); // Start playing the first track
-}
+    // Event listener to trigger the next track when the current one ends
+    audioPlayer.addEventListener('ended', playNextTrack);
 
-// Call the function to play shuffled music
-playShuffledMusic();
-
-
-
+    // Start playing the first track
+    playNextTrack();
+});
 // Start the story
 displayStorySection();
