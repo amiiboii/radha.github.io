@@ -10,7 +10,7 @@
 
     <div id="container">
         <div id="story-section">
-            <div class="section-buttons">
+            <div id="buttons">
                 <button onclick="displayStorySection()">OUR STORY</button>
                 <button onclick="askQuestion()">MCQ</button>
             </div>
@@ -22,28 +22,18 @@
             </div>
         </div>
         <div id="question-section">
-            <div class="section-buttons">
+            <div id="buttons">
                 <button onclick="displayStorySection()">OUR STORY</button>
                 <button onclick="askQuestion()">MCQ</button>
             </div>
-            <div id="hi">
+            <div id ="hi">
                 <p id="question"></p>
                 <div id="question-info">Question <span id="question-number"></span></div>
                 <ul id="choices"></ul>
                 <div id="answer-feedback"></div>
                 <button onclick="nextQuestion()">Next</button>
                 <button onclick="skipQuestion()">Skip</button> <!-- Add the skip button -->
-            </div>
-        </div>
-        <div id="audio-section">
-            <h2 id="audio-heading">Now Playing: <span id="current-track"></span></h2>
-            <audio id="audio-player" controls>
-                <source src="" type="audio/mpeg" id="audio-source">
-                Your browser does not support the audio element.
-            </audio>
-            <div id="audio-buttons">
-                <button onclick="skipTrack()">Skip Track</button>
-            </div>
+            <div>    
         </div>
     </div>
 

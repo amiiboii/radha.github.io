@@ -437,32 +437,31 @@ document.addEventListener('keydown', function (event) {
         nextLine();
     }
 });
-const audioPlayer = document.getElementById('audio-player');
-const currentTrackElement = document.getElementById('current-track');
-const audioSource = document.getElementById('audio-source');
-
-// List of tracks with their names and URLs
-const tracks = [
-    { name: "Better Off (Live from the Internet)", url: "https://radha.github.io/Music/better%20off%20(live%20from%20the%20internet).mp3" },
-    // Add more tracks as needed
-];
 
 let currentTrackIndex = 0;
 
-function playTrack() {
-    audioSource.src = tracks[currentTrackIndex].url;
-    audioPlayer.load();
-    audioPlayer.play();
-    currentTrackElement.textContent = tracks[currentTrackIndex].name;
-}
-
+// Function to skip to the next track
 function skipTrack() {
-    currentTrackIndex = (currentTrackIndex + 1) % tracks.length;
-    playTrack();
+    currentTrackIndex = (currentTrackIndex + 1) % trackNames.length;
+    playAudio(); // Call the playAudio function to update the audio player
 }
 
-// Initial setup
-playTrack();
+// Function to play the audio
+function playAudio() {
+    const audioPlayer = document.getElementById('audio-player');
+    const audioHeading = document.getElementById('audio-heading');
+    const currentTrackSpan = document.getElementById('current-track');
+    const audioSource = document.getElementById('audio-source');
+
+    // Update the audio player source and track name
+    audioSource.src = `radha.github.io/Music${currentTrackIndex + 1}.mp3`;
+    audioPlayer.load(); // Reload the audio player with the new source
+    audioHeading.textContent = `Now Playing: ${trackNames[currentTrackIndex]}`;
+    currentTrackSpan.textContent = trackNames[currentTrackIndex];
+
+    // Play the audio
+    audioPlayer.play();
+}
 
 
 // Start the story
