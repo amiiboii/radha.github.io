@@ -438,30 +438,45 @@ document.addEventListener('keydown', function (event) {
     }
 });
 
-let currentTrackIndex = 0;
+console.clear();
 
-// Function to skip to the next track
-function skipTrack() {
-    currentTrackIndex = (currentTrackIndex + 1) % trackNames.length;
-    playAudio(); // Call the playAudio function to update the audio player
+class musicPlayer {
+  constructor() {
+    this.play = this.play.bind(this);
+    this.playBtn = document.getElementById('play');
+    this.playBtn.addEventListener('click', this.play);
+    this.controlPanel = document.getElementById('control-panel');
+    this.infoBar = document.getElementById('info');
+    this.audio = document.getElementById('audio');
+  }
+
+  play() {
+    // Toggle the "active" class on control-panel
+    Array.from(this.controlPanel.classList).find(function (element) {
+      return element !== 'active'
+        ? this.controlPanel.classList.add('active')
+        : this.controlPanel.classList.remove('active');
+    }, this);
+
+    // Toggle the "active" class on info
+    Array.from(this.infoBar.classList).find(function (element) {
+      return element !== 'active'
+        ? this.infoBar.classList.add('active')
+        : this.infoBar.classList.remove('active');
+    }, this);
+
+    // Toggle play/pause for the audio element
+    if (this.audio.paused) {
+      this.audio.play();
+    } else {
+      this.audio.pause();
+    }
+  }
 }
 
-// Function to play the audio
-function playAudio() {
-    const audioPlayer = document.getElementById('audio-player');
-    const audioHeading = document.getElementById('audio-heading');
-    const currentTrackSpan = document.getElementById('current-track');
-    const audioSource = document.getElementById('audio-source');
+// Create an instance of the musicPlayer class
+const newMusicplayer = new musicPlayer();
 
-    // Update the audio player source and track name
-    audioSource.src = `radha.github.io/Music${currentTrackIndex + 1}.mp3`;
-    audioPlayer.load(); // Reload the audio player with the new source
-    audioHeading.textContent = `Now Playing: ${trackNames[currentTrackIndex]}`;
-    currentTrackSpan.textContent = trackNames[currentTrackIndex];
-
-    // Play the audio
-    audioPlayer.play();
-}
 
 
 // Start the story
