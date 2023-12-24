@@ -438,7 +438,7 @@ document.addEventListener('keydown', function (event) {
     }
 });
 
-
+console.clear();
 
 class musicPlayer {
   constructor() {
