@@ -439,36 +439,36 @@ document.addEventListener('keydown', function (event) {
 });
 
 
-console.clear();
+// console.clear();
 
-class musicPlayer {
-  constructor() {
-    this.play = this.play.bind(this);
-    this.playBtn = document.getElementById('play');
-    this.playBtn.addEventListener('click', this.play);
-    this.controlPanel = document.getElementById('control-panel');
-    this.infoBar = document.getElementById('info');
-    this.audio = document.getElementById('audio');
-  }
+// class musicPlayer {
+//   constructor() {
+//     this.play = this.play.bind(this);
+//     this.playBtn = document.getElementById('play');
+//     this.playBtn.addEventListener('click', this.play);
+//     this.controlPanel = document.getElementById('control-panel');
+//     this.infoBar = document.getElementById('info');
+//     this.audio = document.getElementById('audio');
+//   }
 
-  play() {
-    // Toggle the "active" class on control-panel
-    this.controlPanel.classList.toggle('active');
+//   play() {
+//     // Toggle the "active" class on control-panel
+//     this.controlPanel.classList.toggle('active');
 
-    // Toggle the "active" class on info
-    this.infoBar.classList.toggle('active');
+//     // Toggle the "active" class on info
+//     this.infoBar.classList.toggle('active');
 
-    // Toggle play/pause for the audio element
-    if (this.audio.paused) {
-      this.audio.play();
-    } else {
-      this.audio.pause();
-    }
-  }
-}
+//     // Toggle play/pause for the audio element
+//     if (this.audio.paused) {
+//       this.audio.play();
+//     } else {
+//       this.audio.pause();
+//     }
+//   }
+// }
 
-// Create an instance of the musicPlayer class
-const newMusicplayer = new musicPlayer();
+// // Create an instance of the musicPlayer class
+// const newMusicplayer = new musicPlayer();
 
 
 
