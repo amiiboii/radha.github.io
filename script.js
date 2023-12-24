@@ -475,7 +475,7 @@ class musicPlayer {
 }
 
 // Create an instance of the musicPlayer class
-const newMusicplayer = new musicPlayer();
+MusicPlayer();
 
 
 
