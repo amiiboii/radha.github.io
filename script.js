@@ -439,6 +439,7 @@ document.addEventListener('keydown', function (event) {
 });
 
 
+console.clear();
 
 class musicPlayer {
   constructor() {
@@ -452,18 +453,10 @@ class musicPlayer {
 
   play() {
     // Toggle the "active" class on control-panel
-    Array.from(this.controlPanel.classList).find(function (element) {
-      return element !== 'active'
-        ? this.controlPanel.classList.add('active')
-        : this.controlPanel.classList.remove('active');
-    }, this);
+    this.controlPanel.classList.toggle('active');
 
     // Toggle the "active" class on info
-    Array.from(this.infoBar.classList).find(function (element) {
-      return element !== 'active'
-        ? this.infoBar.classList.add('active')
-        : this.infoBar.classList.remove('active');
-    }, this);
+    this.infoBar.classList.toggle('active');
 
     // Toggle play/pause for the audio element
     if (this.audio.paused) {
@@ -475,6 +468,8 @@ class musicPlayer {
 }
 
 // Create an instance of the musicPlayer class
+const newMusicplayer = new musicPlayer();
+f the musicPlayer class
 MusicPlayer();
 
 
