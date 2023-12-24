@@ -440,32 +440,54 @@ document.addEventListener('keydown', function (event) {
 
 console.clear();
 
+// class musicPlayer {
+//   constructor() {
+//     this.play = this.play.bind(this);
+//     this.playBtn = document.getElementById('play');
+//     this.playBtn.addEventListener('click', this.play);
+//     this.controlPanel = document.getElementById('control-panel');
+//     this.infoBar = document.getElementById('info');
+//     this.audio = document.getElementById('audio');
+//   }
+
+//   play() {
+//     // Toggle the "active" class on control-panel
+//     Array.from(this.controlPanel.classList).find(function (element) {
+//       return element !== 'active'
+//         ? this.controlPanel.classList.add('active')
+//         : this.controlPanel.classList.remove('active');
+//     }, this);
+
+//     // Toggle the "active" class on info
+//     Array.from(this.infoBar.classList).find(function (element) {
+//       return element !== 'active'
+//         ? this.infoBar.classList.add('active')
+//         : this.infoBar.classList.remove('active');
+//     }, this);
+
+//     // Toggle play/pause for the audio element
+//     if (this.audio.paused) {
+//       this.audio.play();
+//     } else {
+//       this.audio.pause();
+//     }
+//   }
+// }
+
+// // Create an instance of the musicPlayer class
+// const newMusicplayer = new musicPlayer();
+
+console.clear();
+
 class musicPlayer {
   constructor() {
     this.play = this.play.bind(this);
     this.playBtn = document.getElementById('play');
     this.playBtn.addEventListener('click', this.play);
-    this.controlPanel = document.getElementById('control-panel');
-    this.infoBar = document.getElementById('info');
     this.audio = document.getElementById('audio');
   }
 
   play() {
-    // Toggle the "active" class on control-panel
-    Array.from(this.controlPanel.classList).find(function (element) {
-      return element !== 'active'
-        ? this.controlPanel.classList.add('active')
-        : this.controlPanel.classList.remove('active');
-    }, this);
-
-    // Toggle the "active" class on info
-    Array.from(this.infoBar.classList).find(function (element) {
-      return element !== 'active'
-        ? this.infoBar.classList.add('active')
-        : this.infoBar.classList.remove('active');
-    }, this);
-
-    // Toggle play/pause for the audio element
     if (this.audio.paused) {
       this.audio.play();
     } else {
@@ -474,9 +496,7 @@ class musicPlayer {
   }
 }
 
-// Create an instance of the musicPlayer class
 const newMusicplayer = new musicPlayer();
-
 
 
 // Start the story
