@@ -1,5 +1,5 @@
 
-
+@import url("https://fonts.googleapis.com/css?family=Fira+Sans");
 
 body {
     margin: 0;
@@ -323,7 +323,7 @@ body {
 }
 
 
-@import url("https://fonts.googleapis.com/css?family=Fira+Sans");
+
 html, body {
   position: relative;
   min-height: 100vh;
